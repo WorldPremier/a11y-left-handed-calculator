@@ -3,9 +3,9 @@ import "./styles.css"
 function App() {
   return (
     <div className="calculator-grid">
-      <div className="output">a11y 1.0
-        <div className="previous-operand">Left Handed</div>
-        <div className="current-operand">Calculator</div>
+      <div className="output"> a11y 1.0
+        <div className="previous-operand"> Left Handed </div>
+        <div className="current-operand"> Calculator </div>
       </div>
       <button>/</button>
       <button>DEL</button>
