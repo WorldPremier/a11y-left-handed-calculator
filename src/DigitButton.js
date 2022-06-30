@@ -1,11 +1,11 @@
 import { ACTIONS } from "./App"
 
 export default function DigitButton({ dispatch, digit }) {
-    return
+    return(
         <button 
-        onClick={() => dispatch({type: ACTIONS.ADD_DIGIT.DIGIT, payload: { digit } })}
+        onClick={() => dispatch({type: ACTIONS.ADD_DIGIT, payload: { digit } })}
         >
             {digit}
         </button>
-    
+    )
 }
