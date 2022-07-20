@@ -10,7 +10,7 @@ import OperationButton from "./OperationButton"
   CLEAR: 'clear',
   DELETE_DIGIT: 'delete-digit',
   EVALUATE: 'evaluate'
-
+ 
 }
 
  function reducer(state, {type, payload}){
