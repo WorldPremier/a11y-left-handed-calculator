@@ -3,8 +3,8 @@ import "./styles.css";
 import DigitButton from "./DigitButton";//module has several named ///parameters
 import OperationButton from "./OperationButton"
 
-
- export const ACTIONS = {
+ 
+export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
   CHOOSE_OPERATION: 'choose-operation',
   CLEAR: 'clear',
@@ -54,7 +54,7 @@ import OperationButton from "./OperationButton"
      
      
       // i.e.             ***************CALCULATOR-output-screen*************
-      //                  *                                             56 + *
+      //                  *                                             56 + * 
       //                  *                                            65945 *
       //                  ****************************************************
       // Diagram 1.1
@@ -77,6 +77,7 @@ import OperationButton from "./OperationButton"
 
     case ACTIONS.CLEAR:
       return {}
+    
     case ACTIONS.DELETE_DIGIT:
       if(state.overwrite){
         return {
@@ -114,6 +115,7 @@ import OperationButton from "./OperationButton"
   }
 }
 
+//convert string into numbers
 function evaluate({ currentOperand, previousOperand, operation}){
   
   const prev = parseFloat(previousOperand)
@@ -184,7 +186,7 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
       <DigitButton digit="8" dispatch={dispatch} />
       <DigitButton digit="9" dispatch={dispatch} />
      
-      <button className="span-two">=</button>
+      <button className="span-two" onClick={()=> dispatch({ type: ACTIONS.EVALUATE })}>=</button>
       <DigitButton digit="0" dispatch={dispatch} />
       <DigitButton digit="." dispatch={dispatch} />
     
