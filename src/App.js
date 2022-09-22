@@ -145,6 +145,13 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 0,
 })
 
+function formatOperand(operand){
+  if(operand == null) return
+  const [integer, decimal] = operand.split('.')
+  if(decimal == null) return INTEGER_FORMATTER.format(integer)
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+}
+
  function App() {
   //userReducer hook. ;-) 
   const [{currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {})
@@ -153,8 +160,10 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">{previousOperand}{operation}</div>
-        <div className="current-operand">{currentOperand}</div>
+        <div className="previous-operand">{formatOperand(previousOperand)}{operation}
+        </div>
+        <div className="current-operand">{formatOperand(currentOperand)}
+        </div>
       </div>
      
       {/* <OperationButton operation="DEL" dispatch={dispatch} /> */}
@@ -164,10 +173,10 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
         onClick={() => dispatch({ type: ACTIONS.CLEAR})}
       >
         AC
-        </button>
-        <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
+      </button>
+      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
           DEL
-        </button>
+      </button>
         
      
       <OperationButton operation="*" dispatch={dispatch} />
